@@ -36,3 +36,21 @@ In the prepared preseed, the priorities are as follows:
 | 0  | 2048  | 2048  | 2048  | swap  |
 | 96  | 4000  | 4096  | 4096  | var  |
 | 1  | 1000  | 1000  | -1  | root  |
+
+
+## Make ISO
+
+```
+
+mkdir isofiles
+bsdtar -C isofiles -xf debian-10.8.0-i386-netinst.iso
+xorriso -osirrox on -indev debian-10.8.0-i386-netinst.iso -extract / isofiles
+7z x -oisofiles debian-10.8.0-i386-netinst.iso
+
+chmod +w -R isofiles/install.386/
+gunzip isofiles/install.386/initrd.gz
+echo preseed.cfg | cpio -H newc -o -A -F isofiles/install.386/initrd
+gzip isofiles/install.386/initrd
+chmod -w -R isofiles/install.386/
+
+```
