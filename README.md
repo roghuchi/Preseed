@@ -62,3 +62,17 @@ gzip isofiles/install.386/initrd
 chmod -w -R isofiles/install.386/
 
 ```
+
+## Disable menue
+
+for disable menue installation change isolinux.cfg on isofiles:
+
+
+```
+path
+include menu.cfg
+#default vesamenu.c32
+default install
+prompt 0
+timeout 1
+```
