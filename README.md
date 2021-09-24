@@ -16,7 +16,8 @@ Otherwise, the absolute value of the difference between priority and minimum wei
 If I consider the above example:
 
 
-weight   minimum   priority   maximum   name
-0        8192      8241       16384     swap
-2        16384     16386      -1        root
-0        8192      8241       16384     var
+| weight  | minimum | priority | maximum | name |
+| ------------- | ------------- | ------------- | ------------- | ------------- |
+| 0  | 8192  | 8241  | 16384  | swap  |
+| 2  | 16384  | 16386  | -1  | root  |
+| 0  | 8192  | 8241  | 16384  | var  |
