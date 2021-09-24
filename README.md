@@ -2,6 +2,9 @@
 Auto Debian installation with Preseed
 
 
+## What is Preseed?
+Preseeding is a method for automating the installation of the Debian operating system. we should replace preseed to initrd file.
+
 ## Disk partition format
 
 When a partition is introduced, 3 numbers will be considered for it. minimum, priority and maximum!
