@@ -21,3 +21,18 @@ If I consider the above example:
 | 0  | 8192  | 8241  | 16384  | swap  |
 | 2  | 16384  | 16386  | -1  | root  |
 | 0  | 8192  | 8241  | 16384  | var  |
+
+
+After determining the weight of each partition, the minimum value of each partition is assigned to it based on priority. Here, each of the swap and var partitions is assigned a value of 8192M, and then a value of 16384M will be assigned to the root partition.
+
+After assigning a minimum value to each partition, if our hard drive space is still usable and empty, a number (percentage) will be considered for each partition based on the priority of each partition. For example, here we have values ​​that are 49%, 2% and 49%. Therefore, with this division in the next step, it allocates up to the maximum space required by the partition to that space. After our swap and var are maximized, the rest of the remaining space will be allocated to root because its maximum is -1.
+In the prepared preseed, the priorities are as follows:
+
+| weight  | minimum | priority | maximum | name |
+| ------------- | ------------- | ------------- | ------------- | ------------- |
+| 0  | 1  | 1  | 1  | biosgrub  |
+| 0  | 256  | 256  | 256  | efi  |
+| 0  | 500  | 500  | 500  | boot  |
+| 0  | 2048  | 2048  | 2048  | swap  |
+| 96  | 4000  | 4096  | 4096  | var  |
+| 1  | 1000  | 1000  | -1  | root  |
