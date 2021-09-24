@@ -43,7 +43,7 @@ In the prepared preseed, the priorities are as follows:
 
 ## Make ISO
 
-extract an iso:
+### extract an iso:
 
 ```
 mkdir isofiles
@@ -52,7 +52,7 @@ xorriso -osirrox on -indev debian-10.8.0-i386-netinst.iso -extract / isofiles
 7z x -oisofiles debian-10.8.0-i386-netinst.iso
 ```
 
-create new iso with preseed:
+### echo preseed to initrd:
 
 ```
 chmod +w -R isofiles/install.386/
@@ -63,7 +63,7 @@ chmod -w -R isofiles/install.386/
 
 ```
 
-## Disable menu
+### Disable menu
 
 for disable menu installation change isolinux.cfg on isofiles:
 
@@ -75,4 +75,18 @@ include menu.cfg
 default install
 prompt 0
 timeout 1
+```
+
+### create new iso
+
+
+```
+cd isofiles
+chmod +w md5sum.txt
+sudo find -follow -type f ! -name md5sum.txt -print0 | sudo xargs -0 md5sum > md5sum.txt
+chmod -w md5sum.txt
+cd ..
+
+sudo genisoimage -r -J -b isolinux/isolinux.bin -c isolinux/boot.cat -no-emul-boot -boot-load-size 4 -boot-info-table  -o preseed-debian-10.8.0-i386-netinst.iso isofiles
+
 ```
