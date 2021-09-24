@@ -2,7 +2,7 @@
 Auto Debian installation with Preseed
 
 
-# Disk partition format
+## Disk partition format
 
 When a partition is introduced, 3 numbers will be considered for it. minimum, priority and maximum!
 From the left,minimum, priority and maximum number.
