@@ -63,9 +63,9 @@ chmod -w -R isofiles/install.386/
 
 ```
 
-## Disable menue
+## Disable menu
 
-for disable menue installation change isolinux.cfg on isofiles:
+for disable menu installation change isolinux.cfg on isofiles:
 
 
 ```
